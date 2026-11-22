@@ -1,1 +1,52 @@
+#include<stdio.h>
+struct Student
+{
+int roll;
+int pps,ep,egr;
+char name[30];
+int totl;
+float per;
+};
+int main()
+{
+int i,n;
+printf("----------Student information----------");
+printf("\n enter the no of records :");
+scanf("%d",&n);
+struct Student starr[n];
+for(i=0;i<n;i++)
+{
+printf("enter the roll no of student :");
+scanf("%d",&starr[i].roll);
 
+printf("enter the marks of 3 subjects:");
+scanf("%d%d%d",&starr[i].pps,&starr[i].ep,&starr[i].egr);
+
+printf("enter the name of Student:");
+scanf("%s",starr[i].name);
+starr[i].totl=starr[i].pps+starr[i].ep+starr[i].egr;
+starr[i].per=starr[i].totl/3;
+}
+printf("\n roll no \t name\t marks\t totl\t per\t result ");
+
+for(i=0;i<n;i++)
+{
+printf("\n %d",starr[i].roll);
+printf("\t\t");
+puts(starr[i].name);
+printf("\t\t");
+printf("\t\t%d",starr[i].pps);
+printf("\t%d",starr[i].ep);
+printf("\t%d",starr[i].egr);
+printf("\t\t%d",starr[i].totl);
+printf("\t%f",starr[i].per);
+
+if(starr[i].per<20)
+{
+printf("fail");
+}
+else
+printf("pass");
+}
+return 0;
+}
